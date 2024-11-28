@@ -1,0 +1,5 @@
+Napraviti program koji će generirati niz od 100000 cijelih brojeva u rasponu od 0 do RAND_MAX. Nakon toga, potrebno je ponuditi korisniku izbor tako da može odabrati jedan od 3 algoritma za sortiranje: MERGESORT, HEAPSORT ili BUBBLESORT.
+
+Nakon odabira, program se treba explicitno povezati s jednim od odgovarajuća 3 DLL-a, pozvati program za sortiranje sa nizom koji je generirao i ispisati vrijeme koje je bilo potrebno za sortiranje, a nakon toga sortrirani niz ispisati u datoteku sort.txt.
+
+Uz ovaj program potrebno je napraviti i 3 DLL-a s odgovarajućim implementacijama navedenih algoritama za sortiranje.
