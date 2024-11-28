@@ -1,0 +1,29 @@
+
+
+Konkurentsko zaključavanje kod zapisivanja u datoteku
+
+Napraviti program koji će periodički (svakih 1-5 sekundi, slučajno) pokrenuti zapisivanje podataka u tekstualnu datoteku "data.txt" veličine 1MB (potrebno najprije napraviti takvu datoteku popunjenu prazninama). Program ne treba imati GUI.
+
+Program treba pomoću slučajnih brojeva odrediti poziciju (offset) na kojoj će zapisivati podatke (pozicija treba biti u rasponu od 0 do 1023, predstavlja korake po jedan KB u datoteci od 1MB), nakon toga treba zaključati dio datoteke u koju će zapisivati isto tako slučajnu količinu podataka u raponu od 1K do 64k. Program treba zapisivati svoj PID na 8 mjesta širine uzastopno. Nakon zapisivanja potrebno je otključati zadani raspon. Nakon svakih 128 zapisa (to je 128*8=1024=1KB), tj. svakih 1KB ugraditi pazu od 100ms. Tako da će najkraći zapis od 1K trajati najmanje 100ms, a najduži od 64KB će trajati najmanje 64*100ms= 6,4s.
+
+Program treba biti u stanju da se pokrene višestruko. Svaki pokrenuti program će biti proces s vlastitim PID-em. Svi oni trebaju zapisivati u istu datoteku data.txt. Zapisivanje može biti uspješno ili neuspješno (ako je već drugi proces zaključao taj raspon!)
+
+Također, svaki proces treba generirati datoteku koja treba imati ime njihovog PID.txt, a u kojoj će zapisivati poruke o svojim akcijama u slijedećem obliku: TIMESTAMP Uspješno zapisano XYKB na poziciji OFFSET   ili   TIMESTAMP zapisivanje nije uspjelo na poziciji OFFSET.
+
+Npr. neka je PID=123, datoteka 123.txt treba izgledati ovako:
+
+2024-11-24 23:31:13 Uspješno zapisano 4KB na poziciji 279522
+
+2024-11-24 23:31:17 Uspješno zapisano 62KB na poziciji 407552
+
+2024-11-24 23:31:26 Uspješno zapisano 13KB na poziciji 977920
+
+2024-11-24 23:31:31 Zapisivanje nije uspjelo na poziciji 512000
+
+2024-11-24 23:31:34 Uspješno zapisano 47KB na poziciji 909312
+
+...
+
+(primjedba1: 2. zapis je trajao preko 6 sekundi + još vrijeme koje se čeka slučajno 1-5 sekundi do idućeg zapisivanja, zato je idući, 3. zapis tek za 9 sekundi
+
+primjedba 2: sve pozicije zapisivanja su višekratnici 1024)
